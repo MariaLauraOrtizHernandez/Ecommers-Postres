@@ -7,57 +7,206 @@
 }
 
 body{
-    max-width: 1200px;
+    max-width: 100%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: black;
+    background-color: white;
+}
+
+.icon_menu{
+    width: 30px;
     color: white;
-    background-color: #8a3829;
 }
 
 .logo{
-    width: 100px;
-   margin-left: 100px;
+    width: 120px;
 }
 
-.icon-cart{
-    width: 35px;
+nav{
+    background-color: #db3b2e;
+    width: 100%;
+    height: 100px;
 }
 
-.linknav li{
-    list-style: none;
+.enlace{
+    position: absolute;
+    padding: 15px 50px;
 }
 
-.linknav li a{
-    color: inherit;
+nav ul{
+    float: right;
+    margin-right: 30px;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 100px;
+    margin: 0 20px;
+    
+}
+
+nav ul li a{
     text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-style: oblique;
+    position: relative;
 }
 
-.linknav{
+nav ul li a::after{
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: #fcc484;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: scale(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+}
+nav ul li a:hover::after{
+    transform: scale(1);
+}
+
+.containericon{
+    float: right;
+    margin: 25px 20px;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
 }
 
-.containernav{
+.checkbtn{
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+.textoTitulo{
+    width: 100%;
+    height: 100px;
+    background-color: #9c5c5c ;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 }
 
-.search input {
-    background: #fcc484;
-    border: 1px solid white;
-    border-radius: 5px 5px 5px 5px;
+.textoTitulo h1{
     color: white;
-    font-size: 12px;
-    padding: 5px;
- }
+    font-size: 35px;
+    font-style: oblique;
+}
 
-.search button{
-   background-color: #8a3829;
-   color: white;
-   border: none;
-   margin-left: 10px;
- }
+.textoTitulo p{
+    margin-bottom: 60px;
+    color: white;
+    font-size: 18px;
+}
 
- .search button:hover{
-    background-color: #9c5c5c;
- }
+/*Galeria*/
+
+.containergalery {
+    display: flex;
+    width: 100%;
+    height: 600px;
+    bottom: 50px;
+}
+
+.containergalery img{
+    width: 0;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .8;
+    transition: .5s ease;
+}
+
+.containergalery img:hover{
+    cursor: crosshair;
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%);
+}
+
+
+
+
+@media (max-width: 952){
+    .enlace{
+        padding-left: 20px;
+    }
+
+    nav ul li a{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 858px){
+    .checkbtn{
+        margin-top: 20px;
+        display: block;
+        cursor: pointer;
+    }
+
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: #fcc484;
+        top: 100px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+
+    nav ul li{
+        display: block;
+        margin: 10px 0;
+        list-style: 30px;
+    }
+
+    nav ul li a{
+        font-size: 28px;
+    }
+
+    .containericon{
+        float: none;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        padding-bottom: 30px;
+        padding-right: 40px;
+    }
+
+    nav ul li a::after{
+        content: '';
+        width: 100%;
+        height: 2px;
+        background-color: #db3b2e;
+        border-radius: 5px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transform: scale(0);
+        transform-origin: left;
+        transition: transform .25s ease;
+    }
+    nav ul li a:hover::after{
+        transform: scale(1);
+    }
+
+    #check:checked ~ ul{
+        left: 0;
+    }
+}
+
+
